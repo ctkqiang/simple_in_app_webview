@@ -64,7 +64,10 @@ class _SimpleWebViewState extends State<SimpleWebView> {
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: widget.isUrlCentered!,
-        title: Text(widget.url!, color: widget.fontColour!),
+        title: Text(
+          widget.url!,
+          style: TextStyle(color: widget.fontColour!),
+        ),
         backgroundColor: widget.appBarColour!,
         elevation: 0.0,
         actions: [
