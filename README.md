@@ -39,7 +39,7 @@ This package is a plug and play, there are no neccessary code a webview from scr
     this.loadingIndicatorColour = Colors.black,
   }) : super(key: key);
   ```
-
+  
   ```dart
   import 'package:simple_in_app_webview/simple_in_app_webview.dart';
   ```
