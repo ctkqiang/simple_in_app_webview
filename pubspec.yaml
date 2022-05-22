@@ -1,6 +1,6 @@
 name: simple_in_app_webview
 description: The most simple to implement in app web view package
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/johnmelodyme/simple_in_app_webview.git
 
 environment:
