@@ -14,6 +14,9 @@ This package is a plug and play, there are no neccessary code a webview from scr
 2. Share url to 3rd party application.
 3. Option to open the url in the browser.
 
+#### Demo: 
+![demo](demo.gif)
+
 ### How to use? 
 
 1. Installation
@@ -37,5 +40,25 @@ This package is a plug and play, there are no neccessary code a webview from scr
   }) : super(key: key);
   ```
 
-  These are following use case:
-  i. for 
+  ```dart
+  import 'package:simple_in_app_webview/simple_in_app_webview.dart';
+  ```
+  
+  Example of calling the widget: 
+  ```dart
+   SimpleWebView(
+        title: 'The title',
+        message: 'description',
+        url: 'https://someurlhere.com',
+        appBarColour: Colors.purple, 
+        isUrlCentered: false,
+        loadingIndicatorColour: Colors.purple,
+        shareButtonColour: Colors.white,
+      ),
+  ```
+
+### Contribution: 
+I Would ❤️ to see any contributions. If you do liked my work, show some ❤️ by ⭐ repo.
+
+Also you can appreciate me by buy me a coffee:
+<a href="https://www.buymeacoffee.com/johnmelodymel" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
