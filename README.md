@@ -15,7 +15,7 @@ This package is a plug and play, there are no neccessary code a webview from scr
 3. Option to open the url in the browser.
 
 #### Demo: 
-![demo](demo.gif)
+![demo](https://github.com/johnmelodyme/simple_in_app_webview/blob/main/demo.gif?raw=true)
 
 ### How to use? 
 
