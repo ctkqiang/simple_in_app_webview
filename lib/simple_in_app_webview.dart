@@ -53,7 +53,7 @@ class _SimpleWebViewState extends State<SimpleWebView> {
       doThis: () {
         if (Platform.isAndroid) WebView.platform = AndroidWebView();
       },
-      otherwise: () => SimpleLogic.openUri(widget.url!),
+      otherwise: () => SimpleLogic.openUri(widget.url.toString()),
     );
   }
 
@@ -61,6 +61,10 @@ class _SimpleWebViewState extends State<SimpleWebView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.close, color: widget.shareButtonColour!),
+          onPressed: () => Navigator.pop(context),
+        ),
         centerTitle: widget.isUrlCentered!,
         title: Text(widget.url!),
         backgroundColor: widget.appBarColour!,

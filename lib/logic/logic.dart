@@ -1,5 +1,5 @@
-// ignore: import_of_legacy_library_into_null_safe
 // ignore_for_file: deprecated_member_use
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:url_launcher/url_launcher.dart';
