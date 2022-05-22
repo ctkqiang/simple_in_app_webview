@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   webview_flutter: any
+  url_launcher: ^6.0.9
+  flutter_share: ^2.0.0
 
 dev_dependencies:
   flutter_test:
