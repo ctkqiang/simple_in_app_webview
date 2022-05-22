@@ -61,4 +61,5 @@ This package is a plug and play, there are no neccessary code a webview from scr
 I Would ❤️ to see any contributions. If you do liked my work, show some ❤️ by ⭐ repo.
 
 Also you can appreciate me by buy me a coffee:
+<br />
 <a href="https://www.buymeacoffee.com/johnmelodymel" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
