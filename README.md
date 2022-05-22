@@ -27,7 +27,7 @@ This package is a plug and play, there are no neccessary code a webview from scr
 2. Implementation
    Before implementing, make sure you uderstand the `parameters`.
 
-   ```dart
+```dart
    SimpleWebView({
     Key? key,
     @required this.url,
@@ -38,14 +38,14 @@ This package is a plug and play, there are no neccessary code a webview from scr
     this.shareButtonColour = Colors.black,
     this.loadingIndicatorColour = Colors.black,
   }) : super(key: key);
-  ```
+```
   
-  ```dart
+```dart
   import 'package:simple_in_app_webview/simple_in_app_webview.dart';
-  ```
+```
   
   Example of calling the widget: 
-  ```dart
+```dart
    SimpleWebView(
         title: 'The title',
         message: 'description',
@@ -55,7 +55,7 @@ This package is a plug and play, there are no neccessary code a webview from scr
         loadingIndicatorColour: Colors.purple,
         shareButtonColour: Colors.white,
       ),
-  ```
+```
 
 ### Contribution: 
 I Would ❤️ to see any contributions. If you do liked my work, show some ❤️ by ⭐ repo.
