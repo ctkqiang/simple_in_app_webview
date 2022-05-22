@@ -65,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
         url: 'https://github.com/johnmelodyme',
         appBarColour: Colors.purple,
         isUrlCentered: false,
+        fontColour: Colors.white,
         loadingIndicatorColour: Colors.purple,
         shareButtonColour: Colors.white,
       ),

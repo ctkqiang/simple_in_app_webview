@@ -13,6 +13,7 @@ class SimpleWebView extends StatefulWidget {
   String? message;
   bool? isUrlCentered;
   Color? appBarColour;
+  Color? fontColour;
   Color? shareButtonColour;
   Color? loadingIndicatorColour;
 
@@ -29,6 +30,7 @@ class SimpleWebView extends StatefulWidget {
     @required this.message,
     this.isUrlCentered = false,
     this.appBarColour = Colors.white,
+    this.fontColour = Colors.white,
     this.shareButtonColour = Colors.black,
     this.loadingIndicatorColour = Colors.black,
   }) : super(key: key);
@@ -62,7 +64,7 @@ class _SimpleWebViewState extends State<SimpleWebView> {
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: widget.isUrlCentered!,
-        title: Text(widget.url!),
+        title: Text(widget.url!, color: widget.fontColour!),
         backgroundColor: widget.appBarColour!,
         elevation: 0.0,
         actions: [
