@@ -1,10 +1,6 @@
 library simple_in_app_webview;
 
 import 'dart:io';
-
-///
-///
-///
 import 'package:flutter/material.dart';
 import 'package:simple_in_app_webview/logic/logic.dart';
 import 'package:webview_flutter/webview_flutter.dart';

@@ -16,7 +16,7 @@ class SimpleLogic {
   }) async {
     await FlutterShare.share(
       title: title!,
-      text: message!,
+      text: '$title\n${message!}',
       linkUrl: url!,
       chooserTitle: 'Share To Friends',
     );
