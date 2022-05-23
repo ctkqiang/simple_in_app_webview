@@ -1,6 +1,6 @@
 name: simple_in_app_webview
 description: The most simple to implement in app web view package
-version: 0.1.5
+version: 0.1.6
 homepage: https://github.com/johnmelodyme/simple_in_app_webview.git
 
 environment:
@@ -18,5 +18,3 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-
-flutter:
