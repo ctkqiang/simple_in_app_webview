@@ -64,40 +64,60 @@ class _SimpleWebViewState extends State<SimpleWebView> {
           onPressed: () => Navigator.pop(context),
         ),
         centerTitle: widget.isUrlCentered!,
-        title: Text(
-          widget.url!,
-          style: TextStyle(color: widget.fontColour!),
+        title: ListTile(
+          style: ListTileStyle.list,
+          minLeadingWidth: 1,
+          contentPadding: const EdgeInsets.all(1),
+          leading: (() {
+            if (widget.url!.contains('https://')) {
+              return const Icon(Icons.lock);
+            }
+
+            return const Text('');
+          }()),
+          title: Text(
+            widget.url!,
+            style: TextStyle(color: widget.fontColour!),
+          ),
+          trailing: Positioned(
+            right: 0.1,
+            child: Wrap(
+              crossAxisAlignment: WrapCrossAlignment.end,
+              alignment: WrapAlignment.end,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.share, color: widget.shareButtonColour!),
+                  onPressed: () => SimpleLogic.share(
+                    title: widget.title!,
+                    message: widget.message!,
+                    url: widget.url!,
+                  ),
+                ),
+                PopupMenuButton(
+                  icon: Icon(
+                    Icons.more_vert_outlined,
+                    color: widget.shareButtonColour!,
+                  ),
+                  itemBuilder: (context) {
+                    return [
+                      PopupMenuItem(
+                        child: const Text('Open in browser'),
+                        onTap: () => SimpleLogic.openUri(widget.url!),
+                      ),
+                      PopupMenuItem(
+                        child: const Text('Close'),
+                        onTap: () => Navigator.pop(context),
+                      ),
+                    ];
+                  },
+                ),
+              ],
+            ),
+          ),
         ),
         backgroundColor: widget.appBarColour!,
         elevation: 0.0,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.share, color: widget.shareButtonColour!),
-            onPressed: () => SimpleLogic.share(
-              title: widget.title!,
-              message: widget.message!,
-              url: widget.url!,
-            ),
-          ),
-          PopupMenuButton(
-            icon: Icon(
-              Icons.more_vert_outlined,
-              color: widget.shareButtonColour!,
-            ),
-            itemBuilder: (context) {
-              return [
-                PopupMenuItem(
-                  child: const Text('Open in browser'),
-                  onTap: () => SimpleLogic.openUri(widget.url!),
-                ),
-                PopupMenuItem(
-                  child: const Text('Close'),
-                  onTap: () => Navigator.pop(context),
-                ),
-              ];
-            },
-          ),
-        ],
+        actions: null,
       ),
       body: SafeArea(
         child: IndexedStack(
