@@ -57,6 +57,8 @@ class _SimpleWebViewState extends State<SimpleWebView> {
 
   @override
   Widget build(BuildContext context) {
+    WebViewController? webViewController;
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -67,6 +69,8 @@ class _SimpleWebViewState extends State<SimpleWebView> {
         title: ListTile(
           style: ListTileStyle.list,
           minLeadingWidth: 1,
+          dense: true,
+          iconColor: widget.fontColour,
           contentPadding: const EdgeInsets.all(1),
           leading: (() {
             if (widget.url!.contains('https://')) {
@@ -75,49 +79,47 @@ class _SimpleWebViewState extends State<SimpleWebView> {
 
             return const Text('');
           }()),
-          title: Text(
-            widget.url!,
-            style: TextStyle(color: widget.fontColour!),
-          ),
-          trailing: Positioned(
-            right: 0.1,
-            child: Wrap(
-              crossAxisAlignment: WrapCrossAlignment.end,
-              alignment: WrapAlignment.end,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.share, color: widget.shareButtonColour!),
-                  onPressed: () => SimpleLogic.share(
-                    title: widget.title!,
-                    message: widget.message!,
-                    url: widget.url!,
-                  ),
-                ),
-                PopupMenuButton(
-                  icon: Icon(
-                    Icons.more_vert_outlined,
-                    color: widget.shareButtonColour!,
-                  ),
-                  itemBuilder: (context) {
-                    return [
-                      PopupMenuItem(
-                        child: const Text('Open in browser'),
-                        onTap: () => SimpleLogic.openUri(widget.url!),
-                      ),
-                      PopupMenuItem(
-                        child: const Text('Close'),
-                        onTap: () => Navigator.pop(context),
-                      ),
-                    ];
-                  },
-                ),
-              ],
+          title: Flexible(
+            child: Text(
+              widget.url!,
+              style: TextStyle(color: widget.fontColour!),
             ),
           ),
         ),
         backgroundColor: widget.appBarColour!,
         elevation: 0.0,
-        actions: null,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.share, color: widget.shareButtonColour!),
+            onPressed: () => SimpleLogic.share(
+              title: widget.title!,
+              message: widget.message!,
+              url: widget.url!,
+            ),
+          ),
+          PopupMenuButton(
+            icon: Icon(
+              Icons.more_vert_outlined,
+              color: widget.shareButtonColour!,
+            ),
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem(
+                  child: const Text('Refresh'),
+                  onTap: () => webViewController?.reload(),
+                ),
+                PopupMenuItem(
+                  child: const Text('Open in browser'),
+                  onTap: () => SimpleLogic.openUri(widget.url!),
+                ),
+                PopupMenuItem(
+                  child: const Text('Close'),
+                  onTap: () => Navigator.pop(context),
+                ),
+              ];
+            },
+          ),
+        ],
       ),
       body: SafeArea(
         child: IndexedStack(
@@ -131,6 +133,7 @@ class _SimpleWebViewState extends State<SimpleWebView> {
               onPageStarted: (value) => setState(() => progress = 1),
               onPageFinished: (value) => setState(() => progress = 0),
               onProgress: (value) => progress,
+              onWebViewCreated: (controller) => webViewController = controller,
             ),
             Center(
               child: CircularProgressIndicator(
